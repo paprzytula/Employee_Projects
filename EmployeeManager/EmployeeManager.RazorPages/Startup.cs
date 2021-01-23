@@ -51,6 +51,9 @@ namespace EmployeeManager.RazorPages
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePagesWithReExecute("/Error", "?code={0}");
+            app.UseExceptionHandler("/Error");
+
             app.UseStaticFiles();
 
             app.UseRouting();
