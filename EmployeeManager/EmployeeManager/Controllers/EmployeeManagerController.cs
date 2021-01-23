@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using EmployeeManager.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManager.Controllers
 {
+    [Authorize(Roles ="Manager")]
     public class EmployeeManagerController : Controller
     {
         private AppDbContext context;
