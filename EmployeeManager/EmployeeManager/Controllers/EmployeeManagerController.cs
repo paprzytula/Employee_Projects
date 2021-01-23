@@ -41,7 +41,48 @@ namespace EmployeeManager.Controllers
             return View(model);
         }
 
-        private void FillCountries()
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            FillCountries();
+            var model = context.Employees.Find(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Employee model)
+        {
+            FillCountries();
+            if (ModelState.IsValid)
+            {
+                context.Employees.Update(model);
+                context.SaveChanges();
+                ViewBag.Message = "Employee updated successfully";
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
+        {
+            var model = context.Employees.Find(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var model = context.Employees.Find(id);
+            context.Employees.Remove(model);
+            context.SaveChanges();
+            TempData["Message"] = "Employee deleted successfully";
+            return RedirectToAction("List");
+        }
+
+
+            private void FillCountries()
         {
             List<SelectListItem> listOfCountries = (from c in context.Employees
                                                     select new SelectListItem()
