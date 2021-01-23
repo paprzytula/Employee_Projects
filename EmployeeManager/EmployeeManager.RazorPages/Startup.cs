@@ -1,5 +1,9 @@
+using EmployeeManager.RazorPages.Models;
+using EmployeeManager.RazorPages.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,11 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using EmployeeManager.Models;
-using EmployeeManager.Security;
 
-namespace EmployeeManager
+namespace EmployeeManager.RazorPages
 {
     public class Startup
     {
@@ -21,10 +22,16 @@ namespace EmployeeManager
         }
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options=>
+                {
+                    options.Conventions.AddPageRoute("/EmployeeManager/List", "");
+                });
+
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
             services.AddIdentity<AppIdentityUser, AppIdentityRole>()
@@ -34,7 +41,6 @@ namespace EmployeeManager
                 options.LoginPath = "/Security/SignIn";
                 options.AccessDeniedPath = "/Security/AccessDenied";
             });
-            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,12 +58,11 @@ namespace EmployeeManager
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints=>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=EmployeeManager}/{action=List}/{id?}");
+                endpoints.MapRazorPages();
             });
+           
         }
     }
 }
