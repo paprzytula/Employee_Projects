@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace EmployeeManager.ApiClient
 {
@@ -33,6 +35,12 @@ namespace EmployeeManager.ApiClient
                 options.LoginPath = "/Security/SignIn";
                 options.AccessDeniedPath = "/Security/AccessDenied";
             });
+            HttpClient client = new HttpClient();
+            
+            client.BaseAddress = new Uri(Configuration.GetValue<string>("AppSettings:BaseUrl"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            services.AddSingleton<HttpClient>(client);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
