@@ -1,5 +1,5 @@
-﻿using EmployeeManager.ApiClient.Models;
-using EmployeeManager.ApiClient.Security;
+﻿using EmployeeManager.APIClient.Models;
+using EmployeeManager.APIClient.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmployeeManager.ApiClient.Controllers
+namespace EmployeeManager.APIClient.Controllers
 {
     public class SecurityController : Controller
     {

@@ -1,0 +1,76 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete an Employee</h2>
+
+<h3 class="message">Are you sure you want to delete?</h3>
+<div>
+    <hr />
+    <table>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.FirstName)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.LastName)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        <tr>
+            <td>
+               <b> @Html.DisplayNameFor(model => model.Title)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Title)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.BirthDate)</b>
+            </td>
+
+            <td>
+                @Model.BirthDate.ToString("dd MMMM yyyy")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.HireDate)</b>
+            </td>
+            <td>
+                @Model.HireDate.ToString("dd MMMM yyyy")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.Country)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Country)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.Notes)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Notes)
+            </td>
+        </tr>
+    </table>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="EmployeeID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-controller="EmployeeManager" asp-action="List">Back to List</a>
+    </form>
+</div>

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmployeeManager.ApiClient.Models
+namespace EmployeeManager.APIClient.Models
 {
     [Table("Employees")]
     public class Employee

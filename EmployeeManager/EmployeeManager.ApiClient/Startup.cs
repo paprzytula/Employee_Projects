@@ -1,18 +1,18 @@
-using EmployeeManager.ApiClient.Security;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net.Http;
+using System.Threading.Tasks;
+using EmployeeManager.APIClient.Security;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Net.Http.Headers;
 
-namespace EmployeeManager.ApiClient
+namespace EmployeeManager.APIClient
 {
     public class Startup
     {
@@ -27,20 +27,22 @@ namespace EmployeeManager.ApiClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+
             services.AddIdentity<AppIdentityUser, AppIdentityRole>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>();
+              .AddEntityFrameworkStores<AppIdentityDbContext>();
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Security/SignIn";
                 options.AccessDeniedPath = "/Security/AccessDenied";
             });
+
             HttpClient client = new HttpClient();
-            
             client.BaseAddress = new Uri(Configuration.GetValue<string>("AppSettings:BaseUrl"));
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             services.AddSingleton<HttpClient>(client);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,14 +57,14 @@ namespace EmployeeManager.ApiClient
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=EmployeeManager}/{action=List}/{id?}");
+                          name: "default",
+                          pattern: "{controller=EmployeeManager}/{action=List}/{id?}");
             });
         }
     }

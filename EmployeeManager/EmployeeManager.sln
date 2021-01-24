@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.RazorPages"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.ApiClient", "EmployeeManager.ApiClient\EmployeeManager.ApiClient.csproj", "{35C1ED83-15C6-460E-83A1-6EFC9C996619}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.APIClient", "EmployeeManager.ApiClient\EmployeeManager.APIClient.csproj", "{35C1ED83-15C6-460E-83A1-6EFC9C996619}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

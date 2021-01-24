@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmployeeManager.ApiClient.Models
+namespace EmployeeManager.APIClient.Models
 {
     public class Register
     {
