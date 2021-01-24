@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.MVC", "EmployeeManager\EmployeeManager.MVC.csproj", "{C8F9465A-7235-4456-A770-4FE2A8BBD4A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.RazorPages", "EmployeeManager.RazorPages\EmployeeManager.RazorPages.csproj", "{3C44E600-9166-4FCF-A51B-C800DF4767A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.RazorPages", "EmployeeManager.RazorPages\EmployeeManager.RazorPages.csproj", "{3C44E600-9166-4FCF-A51B-C800DF4767A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.API", "EmployeeManager.API\EmployeeManager.API.csproj", "{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.ApiClient", "EmployeeManager.ApiClient\EmployeeManager.ApiClient.csproj", "{35C1ED83-15C6-460E-83A1-6EFC9C996619}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F623CD02-4F70-422F-B1C3-CEC5BD66BB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C1ED83-15C6-460E-83A1-6EFC9C996619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C1ED83-15C6-460E-83A1-6EFC9C996619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C1ED83-15C6-460E-83A1-6EFC9C996619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C1ED83-15C6-460E-83A1-6EFC9C996619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
